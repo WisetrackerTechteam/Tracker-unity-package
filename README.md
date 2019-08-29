@@ -19,9 +19,21 @@ http://report.wisetracker.co.kr 로그인
 
 ![Appkey 등록](https://dzf8vqv24eqhg.cloudfront.net/userfiles/6274/8379/ckfinder/images/016.png?dc=201702100857-66 "Appkey 등록")
 
-### 2. 유니티 안드로이드 설정
+### 2. 초기화
+유니티 앱 실행시 최초 실행되는 MonoBehavior 상속받아 구현된 MainScene 클래스의 Awake() 함수에 다음과 같이 초기화 코드를 삽입하세요.
 
-#### 2.1 AndroidManifest.xml 설정
+```java
+ 	#if UNITY_ANDROID && !UNITY_EDITOR
+                WiseTracker.init(); // initialize 코드 삽입
+                WiseTracker.startPage("유니크한 페이지 정보 입력"); // 페이지 호출           
+        #elif UNITY_IOS && !UNITY_EDITOR // for ios
+                WiseTracker.initialization("제공받은 앱키");
+         #endif
+```
+
+### 3. 유니티 안드로이드 설정
+
+####  AndroidManifest.xml 설정
 
 ##### a) Wisetracker AppKey 설정
 
@@ -59,15 +71,24 @@ http://report.wisetracker.co.kr 로그인
 </activity>
 ```
 
-#### 2.2 SDK 초기화
-유니티 앱 실행시 최초 실행되는 MonoBehavior 상속받아 구현된 MainScene 클래스의 Awake() 함수에 다음과 같이 초기화 코드를 삽입하세요.
+ 
+### 3. iOS 설정
 
-```java
-public class MainScene : MonoBehavior { 
-    void Awake() { 
-        WiseTracker.init(); // initialize 코드 삽입
-        WiseTracker.startPage("유니크한 페이지 정보 입력"); // 페이지 호출
-    }
-}
+#### 1) info.plist파일 디버깅 모드 세팅
+info.plist 파일을 open할때 list로 보기 가 아니라 source로 보기를 선탁하신뒤, 아래의 key/value값을 붙혀 넣습니다.
+// 개발용 true. 배포용 false 권장.
+```xml
+    <key>WiseTrackerLogState</key>
+    <string>true</string>
+```
+
+#### b) 외부 유입 경로 분석 ( Deeplink )
+앱이 설치된 이후 DeepLink를 통해서 앱이 실행되는 경로 분석이 필요한 경우 
+UnityAppController.mm 클래스에 정의된 AppDelegate 정의 항목중 openURL 함수 구현부에 아래와 같이 추가해줍니다.
+```Objective-c
+    [WiseTracker applicationKey:@"제공된 앱키"];
+    [WiseTracker setApplication:[UIApplication sharedApplication]];
+    [WiseTracker initEnd];
+    [WiseTracker urlRefererCheck:sourceApplication url:url];
 ```
 
