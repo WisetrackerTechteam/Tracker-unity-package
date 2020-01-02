@@ -19,19 +19,7 @@ http://report.wisetracker.co.kr 로그인
 
 ![Appkey 등록](https://dzf8vqv24eqhg.cloudfront.net/userfiles/6274/8379/ckfinder/images/016.png?dc=201702100857-66 "Appkey 등록")
 
-### 2. 초기화
-유니티 앱 실행시 최초 실행되는 MonoBehavior 상속받아 구현된 MainScene 클래스의 Awake() 함수에 다음과 같이 초기화 코드를 삽입하세요.
-
-```java
- 	#if UNITY_ANDROID && !UNITY_EDITOR
-                WiseTracker.init(); // initialize 코드 삽입
-                WiseTracker.startPage("유니크한 페이지 정보 입력"); // 페이지 호출           
-        #elif UNITY_IOS && !UNITY_EDITOR // for ios
-                WiseTracker.initialization("제공받은 앱키");
-         #endif
-```
-
-### 3. 유니티 안드로이드 설정
+### 2. 유니티 안드로이드 설정
 
 ####  AndroidManifest.xml 설정
 
@@ -90,5 +78,17 @@ UnityAppController.mm 클래스에 정의된 AppDelegate 정의 항목중 openUR
     [WiseTracker setApplication:[UIApplication sharedApplication]];
     [WiseTracker initEnd];
     [WiseTracker urlRefererCheck:sourceApplication url:url];
+```
+
+### 4. 초기화
+유니티 앱 실행시 최초 실행되는 MonoBehavior 상속받아 구현된 MainScene 클래스의 Awake() 함수에 다음과 같은 초기화 코드를 삽입해 주세요.
+
+```c#
+	#if UNITY_ANDROID && !UNITY_EDITOR
+		WiseTracker.init(); // initialize 코드 삽입
+		WiseTracker.startPage("유니크한 페이지 정보 입력"); // 페이지 호출           
+	#elif UNITY_IOS && !UNITY_EDITOR // for ios
+		WiseTracker.initialization("제공받은 앱키");
+	#endif
 ```
 
