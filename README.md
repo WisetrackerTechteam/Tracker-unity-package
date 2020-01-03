@@ -6,7 +6,7 @@
 #### 1.2 유니티 패키지 임포트
 Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 
-다운로드 받은 **wisetracker-plugin.unitypackage** 파일을 선택해주세요.
+다운로드 받은 **Wisetracker.unitypackage** 파일을 선택해주세요.
 
 ![](http://www.wisetracker.co.kr/wp-content/uploads/2019/08/unity_menu.png)
 ![](http://www.wisetracker.co.kr/wp-content/uploads/2019/08/unity_file.png)
