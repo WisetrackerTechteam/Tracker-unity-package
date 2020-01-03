@@ -21,7 +21,7 @@ http://report.wisetracker.co.kr 로그인
 
 ### 2. 유니티 안드로이드 설정
 
-####  AndroidManifest.xml 설정
+####  AndroidManifest.xml 설정 (Assets/Plugins/Android/AndroidManiest.xml)
 
 ##### a) Wisetracker AppKey 설정
 
@@ -43,7 +43,8 @@ http://report.wisetracker.co.kr 로그인
 
 ##### c) 딥링크 설정
 
-딥링크로 진입할 **android:scheme="YOUR_SCHEME"** 스키마와 **android:host="YOUR_HOST"** 호스트를 설정해 주세요.
+딥링크로 진입할 **android:scheme="YOUR_SCHEME"** 스키마와 **android:host="YOUR_HOST"** 호스트를 설정해 주세요. 
+**유니티 플러그인에서는 딥링크 진입 동작을 위한 UnityDeepLink를 기본적으로 사용하고 있습니다.**
               
 ```xml
 // 예시는 wisetracker://wisetracker.co.kr 링크로 진입시 딥링크 분석이 가능합니다.
