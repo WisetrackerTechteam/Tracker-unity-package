@@ -1,18 +1,18 @@
-### 1. 유니티 플러그인 설치 (AOS/IOS 공통 설정)
+## 1. 유니티 플러그인 설치 (AOS/IOS 공통 설정)
 
-#### 1.1 유니티 패키지 다운로드
+### 1.1 유니티 패키지 다운로드
 유니티 플러그인 패키지 Wisetracker.unitypackage 파일을 다운로드 해주세요.
 
-#### 1.2 유니티 패키지 임포트
+### 1.2 유니티 패키지 임포트
 Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 
 다운로드 받은 **Wisetracker.unitypackage** 파일을 선택해주세요.
 
-<img src="http://www.wisetracker.co.kr/wp-content/uploads/2019/08/unity_menu.png" width="340" height="450"/>
+<img src="http://www.wisetracker.co.kr/wp-content/uploads/2019/08/unity_menu.png" width="340" height="430"/>
 
 ![](http://www.wisetracker.co.kr/wp-content/uploads/2019/08/unity_file.png)
 
-#### 1.3 Wisetracker AppKey 발급
+### 1.3 Wisetracker AppKey 발급
 
 http://report.wisetracker.co.kr 로그인
 
@@ -20,11 +20,11 @@ http://report.wisetracker.co.kr 로그인
 
 ![Appkey 등록](https://dzf8vqv24eqhg.cloudfront.net/userfiles/6274/8379/ckfinder/images/016.png?dc=201702100857-66 "Appkey 등록")
 
-### 2. 유니티 안드로이드 설정
+## 2. 유니티 안드로이드 설정
 
-####  AndroidManifest.xml 설정 (Assets/Plugins/Android/AndroidManiest.xml)
+### AndroidManifest.xml 설정 (Assets/Plugins/Android/AndroidManiest.xml)
 
-##### 1) Wisetracker AppKey 설정
+#### 1) Wisetracker AppKey 설정
 
 ```xml
 // 발급 받은 AppKey meta-data 추가
@@ -33,7 +33,7 @@ http://report.wisetracker.co.kr 로그인
 	android:value="발급 받은 앱키 추가" />
 ```
 
-##### 2) 디버깅 모드 설정
+#### 2) 디버깅 모드 설정
 
 ```xml
 // 개발용 true. 배포용 false 권장.
@@ -42,7 +42,7 @@ http://report.wisetracker.co.kr 로그인
 	android:value="true" /> 
 ```
 
-##### 3) 딥링크 설정
+#### 3) 딥링크 설정
 
 딥링크로 진입할 **android:scheme="YOUR_SCHEME"** 스키마와 **android:host="YOUR_HOST"** 호스트를 설정해 주세요. 
 **유니티 플러그인에서는 딥링크 진입 동작을 위한 UnityDeepLink를 기본적으로 사용하고 있습니다.**
@@ -62,7 +62,7 @@ http://report.wisetracker.co.kr 로그인
 ```
 
  
-### 3. iOS 설정
+## 3. iOS 설정
 
 #### 1) 필수 파일 iosGetFkey.html 추가
 Plugin 설치 후 생성된 **해당 프로젝트 폴더/Assets/Plugins/iOS/iosGetFkey.html**  파일을 xCode 내
@@ -104,3 +104,6 @@ UnityAppController.mm 클래스에 정의된 AppDelegate 정의 항목중 openUR
 	#endif
 ```
 
+### 5. 태깅가이드
+
+[Unity 태깅가이드](https://github.com/WisetrackerTechteam/unityTaggingGuide/)
