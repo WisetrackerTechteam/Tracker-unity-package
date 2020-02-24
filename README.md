@@ -1,14 +1,15 @@
 ### 1. 유니티 플러그인 설치 (AOS/IOS 공통 설정)
 
 #### 1.1 유니티 패키지 다운로드
-[유니티 플러그인 패키지](https://github.com/WisetrackerTechteam/Tracker-unity-package) 다운로드 해주세요.
+유니티 플러그인 패키지 Wisetracker.unitypackage 파일을 다운로드 해주세요.
 
 #### 1.2 유니티 패키지 임포트
 Unity Tools에서 Assets > Import Package > Custom Package 메뉴 선택.
 
 다운로드 받은 **Wisetracker.unitypackage** 파일을 선택해주세요.
 
-![](http://www.wisetracker.co.kr/wp-content/uploads/2019/08/unity_menu.png)
+<img src="http://www.wisetracker.co.kr/wp-content/uploads/2019/08/unity_menu.png" width="340" height="450"/>
+
 ![](http://www.wisetracker.co.kr/wp-content/uploads/2019/08/unity_file.png)
 
 #### 1.3 Wisetracker AppKey 발급
