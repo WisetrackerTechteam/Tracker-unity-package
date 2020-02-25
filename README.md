@@ -109,18 +109,18 @@ void Awake()
 }
 ```
 
-(2) 기본 페이지 분석
+(2) 체류 시간 분석
 ```c#
 void OnApplicationPause(bool pauseStatus)
 {
     if (!pauseStatus)
     {
-        WiseTracker.startPage("Main");
+        WiseTracker.startPage("APP");
     }
     else
     {
-    	WiseTracker.setPageIdentity("MAIN");
-        WiseTracker.endPage("Main");
+    	WiseTracker.setPageIdentity("APP");
+        WiseTracker.endPage("APP");
     }
 }
 ```
