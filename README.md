@@ -94,16 +94,33 @@ UnityAppController.mm 클래스에 정의된 AppDelegate 정의 항목중 openUR
 ### 4. 초기화
 유니티 앱 실행시 최초 실행되는 MonoBehavior 상속받아 구현된 MainScene 클래스의 Awake() 함수에 다음과 같은 초기화 코드를 삽입해 주세요.
 
+(1) 초기화 호출
+
 ```c#
-	#if UNITY_ANDROID && !UNITY_EDITOR
-		WiseTracker.init(); // initialize 코드 삽입
-		WiseTracker.startPage("유니크한 페이지 ID 입력"); // 페이지 호출           
-	#elif UNITY_IOS && !UNITY_EDITOR // for ios
-		WiseTracker.initialization("제공받은 앱키");
-		WiseTracker.startPage("유니크한 페이지 ID 입력"); // 페이지 호출  
-	#endif
+void Awake() 
+{
+    #if UNITY_ANDROID && !UNITY_EDITOR
+        // for android
+        WiseTracker.init(); // initialize 코드 삽입
+    #elif UNITY_IOS && !UNITY_EDITOR 
+        // for ios
+        WiseTracker.initialization("제공받은 앱키");
+    #endif
+}
 ```
 
-### 5. 태깅가이드
-
-[Unity 태깅가이드](https://github.com/mkt-wt/api-guide/blob/master/return.md)
+(2) 기본 페이지 분석
+```c#
+void OnApplicationPause(bool pauseStatus)
+{
+    if (!pauseStatus)
+    {
+        WiseTracker.startPage("Main");
+    }
+    else
+    {
+    	WiseTracker.setPageIdentity("MAIN");
+        WiseTracker.endPage("Main");
+    }
+}
+```
