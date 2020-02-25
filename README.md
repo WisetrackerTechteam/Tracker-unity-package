@@ -106,4 +106,4 @@ UnityAppController.mm 클래스에 정의된 AppDelegate 정의 항목중 openUR
 
 ### 5. 태깅가이드
 
-[Unity 태깅가이드](https://github.com/WisetrackerTechteam/unityTaggingGuide/)
+[Unity 태깅가이드](https://github.com/mkt-wt/api-guide/blob/master/return.md)
