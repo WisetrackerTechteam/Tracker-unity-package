@@ -101,7 +101,7 @@ void Awake()
 {
     #if UNITY_ANDROID && !UNITY_EDITOR
         // for android
-        WiseTracker.init(); // initialize 코드 삽입
+        WiseTracker.init();
     #elif UNITY_IOS && !UNITY_EDITOR 
         // for ios
         WiseTracker.initialization("제공받은 앱키");
