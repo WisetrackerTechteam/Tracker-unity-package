@@ -22,12 +22,13 @@ http://report.wisetracker.co.kr 로그인
 
 ## 2. 유니티 안드로이드 설정
 
-### AndroidManifest.xml 설정 (Assets/Plugins/Android/AndroidManiest.xml)
+### AndroidManifest.xml 설정 
+-> Assets/Plugins/Android/AndroidManiest.xml
 
 #### 1) Wisetracker AppKey 설정
 
 ```xml
-// 발급 받은 AppKey meta-data 추가
+<!-- 발급 받은 AppKey meta-data 추가 -->
 <meta-data
 	android:name="WiseTrackerKey"
 	android:value="발급 받은 앱키 추가" />
@@ -36,7 +37,7 @@ http://report.wisetracker.co.kr 로그인
 #### 2) 디버깅 모드 설정
 
 ```xml
-// 개발용 true. 배포용 false 권장.
+<!-- 개발용 true / 배포용 false 권장 -->
 <meta-data
 	android:name="WiseTrackerLogState"
 	android:value="true" /> 
@@ -48,7 +49,7 @@ http://report.wisetracker.co.kr 로그인
 **유니티 플러그인에서는 딥링크 진입 동작을 위한 UnityDeepLink를 기본적으로 사용하고 있습니다.**
               
 ```xml
-// 예시는 wisetracker://wisetracker.co.kr 링크로 진입시 딥링크 분석이 가능합니다.
+<!-- 예시는 wisetracker://wisetracker.co.kr 링크로 진입시 딥링크 분석이 가능합니다. -->
 <activity android:name="kr.co.wisetracker.UnityDeepLink" 
           android:launchMode="singleTop" >
     <intent-filter>
@@ -115,12 +116,13 @@ void OnApplicationPause(bool pauseStatus)
 {
     if (!pauseStatus)
     {
-        WiseTracker.startPage("APP");
+    	// 체류 시간 분석을 위한 시간(분 단위)을 넣어주세요
+	// 예) 15분 단위로 체류 페이지 자동 전송
+        WiseTracker.onPlayStart(15);
     }
     else
     {
-    	WiseTracker.setPageIdentity("APP");
-        WiseTracker.endPage("APP");
+    	WiseTracker.onPlayStop();
     }
 }
 ```
