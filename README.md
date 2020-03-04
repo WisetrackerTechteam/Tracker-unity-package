@@ -111,18 +111,32 @@ void Awake()
 ```
 
 (2) 체류 시간 분석
+
+```c#
+void Start() 
+{
+    // 씬 시작시
+    // 체류 시간 분석을 위한 시간(분 단위)을 넣어주세요
+    // 예) 15분 단위로 체류 페이지 자동 전송
+    WiseTracker.onPlayStart(15);	
+}
+```
+
+```c#
+void OnDestroy() 
+{
+    // 씬 종료시
+    WiseTracker.onPlayStop();
+}
+```
+
 ```c#
 void OnApplicationPause(bool pauseStatus)
 {
-    if (!pauseStatus)
+    if (pauseStatus)
     {
-    	// 체류 시간 분석을 위한 시간(분 단위)을 넣어주세요
-	// 예) 15분 단위로 체류 페이지 자동 전송
-        WiseTracker.onPlayStart(15);
-    }
-    else
-    {
-    	WiseTracker.onPlayStop();
+    	// 백그라운드 진입시
+	WiseTracker.onPlayStop();
     }
 }
 ```
